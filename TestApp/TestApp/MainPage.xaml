@@ -1,0 +1,26 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:local="clr-namespace:TestApp"
+             xmlns:views="clr-namespace:SkiaSharp.Views.Forms;assembly=SkiaSharp.Views.Forms"
+             xmlns:localUc="clr-namespace:TestApp.ViewModel"
+             x:Class="TestApp.MainPage">
+    <Grid VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" RowSpacing="0" >
+        <Grid.RowDefinitions>
+            <RowDefinition Height="40" />
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="00" />
+        </Grid.ColumnDefinitions>
+        <Grid Grid.Row="1" Grid.Column="1" VerticalOptions="FillAndExpand" HorizontalOptions="FillAndExpand" >
+            <views:SKCanvasView x:Name="canvas" PaintSurface="OnPaintSample">
+                <views:SKCanvasView.GestureRecognizers>
+                    <PinchGestureRecognizer PinchUpdated="PinchGestureRecognizer_PinchUpdated" />
+                </views:SKCanvasView.GestureRecognizers>
+            </views:SKCanvasView>
+            <Grid.Effects>
+                <localUc:TouchEffect Capture="True" TouchAction="OnTouchEffectAction"></localUc:TouchEffect>
+            </Grid.Effects>
+        </Grid>
+    </Grid>
+</ContentPage>
